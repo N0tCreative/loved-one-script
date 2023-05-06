@@ -1,4 +1,5 @@
-$global:name = "Toby"; #insert name here
+$global:name = "Toby"; #insert their name here
+$global:myName = "Jerad"; #insert your name here
 $global:symbol ="@";
 $global:genericAffermations = @( 
     "I love you"
@@ -15,7 +16,7 @@ $global:genericAffermations = @(
 );
 #add affermations specific to your partner
 $global:specificAffermations =@(
-
+    
 );
 $chosenAffermation = "";
 $max = $global:genericAffermations.Count + $global:specificAffermations.Count;
@@ -28,8 +29,15 @@ if ($index -ge $global:specificAffermations.Count){
     $chosenAffermation = $global:specificAffermations[$index];
 }
 
+
 #this is the line that contains the words of affermation and the partners name
 $commentLine = $global:symbol + " " + $chosenAffermation + " " + $global:name + " " +$global:symbol;
+
+
+$numberOfSpaces = [int](($commentLine.Length - ($global:myName.Length +2))/2);
+$authorNameAndSpace = " " * $numberOfSpaces + "-" + $global:myName + " " * ($commentLine.Length - ($numberOfSpaces +$global:myName.Length +3));
+#this is the line that contains your name
+$authorLine = $global:symbol + $authorNameAndSpace + $global:symbol;
 
 $numberOfHearts = [int]($commentLine.Length/4);
 $numberOfSpaces = [int]($commentLine.Length/8);
@@ -53,6 +61,7 @@ $numberOfSpaces = 0;
 $innerHeart = $global:symbol * $numberOfHearts;
 Write-Output $innerHeart;
 Write-Output $commentLine;
+Write-Output $authorLine;
 
 #generate bottom of heart
 while ($numberOfHearts -gt 0){
