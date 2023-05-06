@@ -9,7 +9,9 @@ $global:genericAffermations = @(
     "I love your smile"
     "You're so sweet"
     "You make me so happy"
-
+    "I want to hug you"
+    "You're the best"
+    "You are so beautiful"
 );
 #add affermations specific to your partner
 $global:specificAffermations =@(
